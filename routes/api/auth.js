@@ -79,7 +79,7 @@ router.post("/login", (req, res, next) => {
               email: person.email
             };
 
-            jwt.sign(payload, key.secret, { expiresIn: 3600 }, (err, token) => {
+            jwt.sign(payload, key.secretOrKey, { expiresIn: 3600 }, (err, token) => {
               res.json({
                 success: true,
                 // token: token이 헷갈려서 명확히 명시해줄려고
@@ -101,7 +101,13 @@ router.post("/login", (req, res, next) => {
 // @access PRIVATE
 
 router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-  console.log(req);
+  // console.log(req.user);
+  res.json({
+    id: req.user._id,
+    name: req.user.name,
+    email: req.user.email,
+    profilepic: req.user.profilepic
+  })
 });
 
 
