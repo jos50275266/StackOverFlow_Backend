@@ -1,5 +1,5 @@
 # StackOverFlow_Backend
-- StackOverFlow_BackEnd Logic 구현해보기!
+- StackOverFlow_BackEnd Logic
 
 ## Modules
 - express: https://www.npmjs.com/package/express
